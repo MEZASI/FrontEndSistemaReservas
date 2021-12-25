@@ -1,0 +1,16 @@
+.delete{
+	font-size: 23px;
+	cursor: pointer;
+	color: #ce4b4b;
+}
+
+.edit{
+	font-size: 23px;
+	cursor: pointer;
+	color: #6B72FF;
+}
+
+.custom-card{
+	background-color: #08C330;
+	color: white;
+}

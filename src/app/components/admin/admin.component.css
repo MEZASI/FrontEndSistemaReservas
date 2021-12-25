@@ -1,0 +1,39 @@
+#tarea{
+	margin-top: 20px;
+}
+
+.content-wrapper{
+	/*background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+	background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);*/
+	
+}
+
+#close{
+	cursor: pointer;
+}
+
+.right{
+	color: #32B84B;
+   
+}
+
+.sidebar-light-success{
+    background-color: #08C330;
+    color: white;
+}
+
+
+.side-color{
+	color: white;
+
+}
+
+.nav-link{
+	cursor: pointer;
+}
+
+.logoDos:hover{
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+

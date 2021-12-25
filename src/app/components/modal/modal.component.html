@@ -1,0 +1,137 @@
+
+<!-- MODDAL DE USUARIOS-->
+<div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+				<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="actualizar" >
+					<div class="form-group" style="display: none;">
+						<input type="text" class="form-control" formControlName="id"
+						[(ngModel)]="this.usuarioService.usuarioSeleccionado.id">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Correo</label>
+						<input type="text" class="form-control" formControlName="correoUsuario" [(ngModel)]="this.usuarioService.usuarioSeleccionado.correoUsuario">
+					</div>
+					<div class="form-group">
+						<label for="usuarioUsuario" class="col-form-label">Nombre Usuario</label>
+						<input type="text" class="form-control" formControlName="nombreUsuario" [(ngModel)]="this.usuarioService.usuarioSeleccionado.nombreUsuario">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Usuario</label>
+						<input type="text" class="form-control" formControlName="usuarioUsuario" [(ngModel)]="this.usuarioService.usuarioSeleccionado.usuarioUsuario">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Password</label>
+						<input type="text" class="form-control" formControlName="passwordUsuario" [(ngModel)]="this.usuarioService.usuarioSeleccionado.passwordUsuario">
+					</div>
+					<div class="form-group">
+						<label for="rolUsuario" class="col-form-label">Rol de usuario</label>
+						<select class="form-control" formControlName="rolUsuario"[(ngModel)]="this.usuarioService.usuarioSeleccionado.rolUsuario">
+							<option>Admin</option>
+							<option>Campo</option>
+						</select>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+						<button type="button" class="btn btn-primary" (click)="actualizarUsuario(actualizar.value.id)">Guardar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--MODAL DE CLIENTES-->
+
+<div class="modal fade" id="modalCleinte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+				<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="actualizarCliente" >
+					<div class="form-group" >
+						<input type="text" class="form-control" formControlName="clienteId"
+						[(ngModel)]="this.clienteService.clienteSeleccionado.clienteId" style="display: none;">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Identificación</label>
+						<input type="text" class="form-control" formControlName="cedulaCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.cedulaCliente">
+					</div>
+					<div class="form-group">
+						<label for="usuarioUsuario" class="col-form-label">Nombre Cliente</label>
+						<input type="text" class="form-control" formControlName="nombreCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.nombreCliente">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Segundo Nombre</label>
+						<input type="text" class="form-control" formControlName="segundoNombreCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.segundoNombreCliente">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Primer Apellido</label>
+						<input type="text" class="form-control" formControlName="primerApellidoCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.primerApellidoCliente">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Segundo Apellido</label>
+						<input type="text" class="form-control" formControlName="segundoApellidoCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.segundoApellidoCliente">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Correo</label>
+						<input type="text" class="form-control" formControlName="correoCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.correoCliente">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Telefono</label>
+						<input type="text" class="form-control" formControlName="telefonoCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.telefonoCliente">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Ciudad de procedencia</label>
+						<input type="text" class="form-control" formControlName="ciudadCliente" [(ngModel)]="this.clienteService.clienteSeleccionado.ciudadCliente">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+						<button type="button" class="btn btn-primary" (click)="actualizarCx(actualizarCliente.value.clienteId)">Guardar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- MODAL DE PAQUETES-->
+<div class="modal fade" id="modalPaquete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Editar Paquete</h5>
+				<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="actualizarPaquete" >
+					<div class="form-group" style="display: none;">
+						<input type="text" class="form-control" formControlName="paqueteId"
+						[(ngModel)]="this.paqueteService.paqueteSeleccionado.paqueteId">
+					</div>
+					<div class="form-group">
+						<label for="correoUsuario" class="col-form-label">Identificación</label>
+						<input type="text" class="form-control" formControlName="nombrePaquete" [(ngModel)]="this.paqueteService.paqueteSeleccionado.nombrePaquete">
+					</div>
+					<div class="form-group">
+						<label for="usuarioUsuario" class="col-form-label">Nombre Cliente</label>
+						<input type="text" class="form-control" formControlName="descripcionPaquete" [(ngModel)]="this.paqueteService.paqueteSeleccionado.descripcionPaquete">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+						<button type="button" class="btn btn-primary" (click)="actualizarPackage(actualizarPaquete.value.paqueteId)">Guardar cambios</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

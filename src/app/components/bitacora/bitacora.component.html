@@ -1,0 +1,46 @@
+<div class="col-12">
+	<div class="card">
+		<div class="card-header custom-card">
+			<h3 class="card-title">Reservas Bitacora</h3>
+
+			<div class="card-tools">
+				<div class="input-group input-group-sm" style="width: 150px;">
+					<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.card-header -->
+		<div class="card-body table-responsive p-0">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Nombre del cliente</th>
+						<th>Paquete</th>
+						<th>Usuario Encargado</th>
+						<th>Fecha de reserva</th>
+						<th>Telefono Cliente</th>
+						<th>Correo Cliente</th>
+						<th>Fecha de creación</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let reserva of listaReservas" >
+						<td>{{ reserva.cliente.nombreCliente }}</td>
+						<td>{{ reserva.paquete.nombrePaquete }}</td>
+						<td>{{ reserva.usuario.usuarioUsuario }}</td>
+						<td>{{ reserva.reservaFecha | date }}</td>
+						<td>{{ reserva.cliente.telefonoCliente }}</td>
+						<td>{{ reserva.cliente.correoCliente }}</td>
+						<td>{{ reserva.reservaFechaAsignacion | date}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- /.card-body -->
+	</div>
+	
+</div>

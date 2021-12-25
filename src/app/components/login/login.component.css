@@ -1,0 +1,24 @@
+body {    
+    background: linear-gradient(#43C6AC, #F8FFAE);
+    background-size: cover;
+    background-position: center;
+}
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+    text-align: center;
+}
+h3 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.3em;
+}
+hr {
+    border-width: 3px;
+    max-width: 65px;
+    border-color: #31E267;
+}
+#validaciones {
+    text-align: start;
+}

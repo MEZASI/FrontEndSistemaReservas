@@ -1,0 +1,134 @@
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="card" style="width: 12rem;">
+				<div class="card-header custom-card">
+					<h3 class="card-title">Registre un cliente</h3>
+				</div>
+				<form [formGroup]="registrarCliente" (ngSubmit)="registrarCx()">
+					<div class="card-body">
+						<div class="form-group">
+							<label for="">Numero de cedula</label>
+							<input type="text" class="form-control"  placeholder="Numero de cedula"
+							formControlName="cedulaCliente">
+							<span class="text-danger ml-2" *ngIf="registrarCliente.get('cedulaCliente')!.hasError('required') && registrarCliente.get('cedulaCliente')!.touched">
+								La cedula<strong> es requerida</strong>
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="">Nombre del cliente</label>
+							<input type="text" class="form-control"  placeholder="Nombre"formControlName="nombreCliente">
+							<span class="text-danger ml-2" *ngIf="registrarCliente.get('nombreCliente')!.hasError('required') && registrarCliente.get('nombreCliente')!.touched">
+								El nombre<strong> es requerido</strong>
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="">Segundo Nombre</label>
+							<input type="text" class="form-control"  placeholder="Segundo Nombre"formControlName="segundoNombreCliente">
+						</div>
+						<div class="form-group">
+							<label for="">Primer Apellido</label>
+							<input type="text" class="form-control"  placeholder="Primer Apellido" formControlName="primerApellido">
+							<span class="text-danger ml-2" *ngIf="registrarCliente.get('primerApellido')!.hasError('required') && registrarCliente.get('primerApellido')!.touched">
+								el primer apellido<strong> es requerido</strong>
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="">Segundo Apellido</label>
+							<input type="text" class="form-control"  placeholder="Segundo Apellido"formControlName="segundoApellido">
+							<span class="text-danger ml-2" *ngIf="registrarCliente.get('segundoApellido')!.hasError('required') && registrarCliente.get('segundoApellido')!.touched">
+								El segundo apellido<strong> es requerido</strong>
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="">Teléfono</label>
+							<input type="text" class="form-control"  placeholder="Teléfono"formControlName="telefonoCliente">
+							<span class="text-danger ml-2" *ngIf="registrarCliente.get('telefonoCliente')!.hasError('required') && registrarCliente.get('telefonoCliente')!.touched">
+								El Teléfono<strong> es requerido</strong>
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="">Correo</label>
+							<input type="text" class="form-control"  placeholder="Correo"formControlName="correoCliente">
+							<span class="email-danger ml-2" *ngIf="registrarCliente.get('correoCliente')!.hasError('required') && registrarCliente.get('correoCliente')!.touched">
+								El correo<strong> es requerido</strong>
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="">Ciudad</label>
+							<input type="text" class="form-control"  placeholder="Ciudad de procedencia"formControlName="ciudadCliente">
+							<span class="text-danger ml-2" *ngIf="registrarCliente.get('ciudadCliente')!.hasError('required') && registrarCliente.get('ciudadCliente')!.touched">
+								La ciudad<strong> es requerida</strong>
+							</span>
+						</div>
+					</div>
+					<div class="card-footer">
+						<button type="submit" class="btn btn-success" [disabled]="registrarCliente.invalid" [ngStyle]="{'background-color': '#08C330'}">Registrar Cliente</button>
+					</div>	
+				</form>
+			</div>
+
+		</div>
+		<div class="col">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header custom-card">
+						<h3 class="card-title">Clientes activos</h3>
+
+						<div class="card-tools">
+							<div class="input-group input-group-sm" style="width: 15rem;">
+								<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+								<div class="input-group-append">
+									<button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body table-responsive p-0">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th style="display: none;">Id</th>
+									<th>Nombre</th>
+									<th>Primer Apellido</th>
+									<th>Segundo Apellido</th>
+									<th>Identificación</th>
+									<th>Teléfono</th>
+									<th>Correo</th>
+									<th>Ciudad</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="odd" *ngFor="let cliente of listaClientes">
+									<td style="display: none;">{{ cliente.clienteId}}</td>
+									<td>{{ cliente.nombreCliente }}</td>
+									<td>{{ cliente.primerApellidoCliente }}</td>
+									<td>{{ cliente.segundoApellidoCliente}}</td>
+									<td>{{ cliente.cedulaCliente  }}</td>
+									<td>{{ cliente.telefonoCliente }}</td>
+									<td>{{ cliente.correoCliente }}</td>
+									<td>{{ cliente.ciudadCliente }}</td>
+									<td ><span class="material-icons edit" (click)="editarClienteModal(cliente)" data-toggle="modal" data-target="#modalCleinte">edit</span></td>
+									<td><span class="material-icons delete" (click)="eliminarCliente(cliente.clienteId)">delete</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+			</div>
+		</div>
+		<div class="col">	
+		</div>
+	</div>
+</div>
+
+<app-modal></app-modal>

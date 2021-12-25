@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MachoMoraAdvetures</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+		<!-- Navbar -->
+		<nav class="main-header navbar navbar-expand navbar-light navbar-light right">
+			<!-- Left navbar links -->
+      <li class="nav-item" style="list-style: none;">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li> 
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item d-none d-sm-inline-block">
+          <a (click)="cPerfil()" class="nav-link">{{userName}}</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+         <a (click)="cPanel()" class="nav-link">Inicio</a>
+       </li>
+      <li class="nav-item d-none d-sm-inline-block" id="close">
+        <a (click)="logOut()" class="nav-link">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-light-success elevation-4 ">
+
+   <!-- Brand Logo -->
+   <a (click)="cPanel()" href="../../../assets/imgs/machoMoraNuevo.jpg" class="brand-link navbar-light">
+    <img src="../../../assets/imgs/machoMoraNuevo.jpg"
+    alt="MachoMoraAdvetures Logo"
+    class="brand-image img-circle elevation-3"
+    style="opacity: .8">
+    <span class="brand-text font-weight-light">MMA</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+     <div class="info">
+      <label for="" style="color: white;">Usuario Activo</label>
+      <h5 style="color: white; font-size: 20px;" *ngFor="let datos of usuario">{{datos}}</h5>
+    </div>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <nav class="mt-2">
+   <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+          	with font-awesome or any other icon font library -->
+          	<li class="nav-item">
+          		<a (click)="cUsuarios()" class="nav-link">
+          			<span class="material-icons side-color">build</span>
+          			<p class="side-color">
+                 Usuarios
+               </p>
+             </a>
+           </li>
+           <li class="nav-item">
+            <a (click)="cClientes()" class="nav-link">
+              <span class="material-icons side-color">build</span>
+              <p class="side-color">
+                Clientes
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="cPaqutes()" class="nav-link">
+              <span class="material-icons side-color">build</span>
+              <p class="side-color">
+                Paquetes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="cReservas()" class="nav-link">
+             <span class="material-icons side-color">book_online</span>
+             <p class="side-color">
+              Reservas 
+              <span class="badge badge-info right"></span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a (click)="cBitacora()" class="nav-link">
+            <span class="material-icons side-color">list</span>
+            <p class="side-color">
+              Bitácora 
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+         <a (click)="cTareas()" class="nav-link">
+          <li class="material-icons side-color">assignment</li>
+          <p class="side-color font">Tareas por cumplir</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+</aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
+         <ol class="breadcrumb float-sm-right">
+          <!--<li class="btn btn-outline-success"><a [routerLink]="['cambiar']">Cambiar Contraseña</a></li>
+            <li class="btn btn-outline-success"><a (click)="logOut()">Cerrar Sesión</a></li>-->
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <img src="../../../assets/imgs/machoMoraNuevo.jpg" class="logoDos" *ngIf="img" style="margin-left: 2%;">
+
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<footer class="main-footer">
+  <strong>Sebastián Meza Arguedas &copy; 2021</strong> All rights
+  reserved.
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+</body>

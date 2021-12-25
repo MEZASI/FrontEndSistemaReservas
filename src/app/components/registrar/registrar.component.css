@@ -1,0 +1,26 @@
+body{
+	 display: flex;
+   	justify-content:center;
+   	align-items: center;
+   	min-height: 100vh;
+   	background-size: cover;
+   	background-position: center;
+}
+
+.delete{
+	font-size: 23px;
+	cursor: pointer;
+	color: #ce4b4b;
+}
+
+.edit{
+	font-size: 23px;
+	cursor: pointer;
+	color: #6B72FF;
+}
+
+.custom-card{
+	 background-color: #08C330;
+	 color: white;
+}
+

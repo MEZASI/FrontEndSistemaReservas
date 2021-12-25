@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 offset-lg-3">
+			<div class="card">
+				<div class="card-header custom-card">
+					<h3 class="card-title">Registre una reserva</h3>
+				</div>
+				<!-- /.card-header -->
+				<!-- form start -->
+				<form [formGroup]="crearReserva" (ngSubmit)="registrarReserva()">
+					<div class="card-body">
+						<div class="form-group">
+							<label>Cliente</label>
+							<select class="form-control select2" style="width: 100%;" formControlName="clienteReserva">
+								<option *ngFor="let clienteReserva of listaClientes" value={{clienteReserva.clienteId}}>
+									{{clienteReserva.nombreCliente}}
+								</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Paquete</label>
+							<select class="form-control select2" style="width: 100%;" formControlName="paqueteReserva">
+								<option selected="selected" *ngFor="let paqueteReserva of listaPaquetes" value={{paqueteReserva.paqueteId}}>
+									{{paqueteReserva.nombrePaquete}}
+								</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Usuario</label>
+							<select class="form-control select2" style="width: 100%;" formControlName="usuarioReserva">
+								<option selected="selected" *ngFor="let usuarioReserva of listaUsuarios" value={{usuarioReserva.id}}>
+									{{usuarioReserva.usuarioUsuario}}
+								</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="">Descripción de la tarea por cumplir</label>
+							<input type="text-field" class="form-control"  placeholder="Descripción"
+							formControlName="descripcionReserva">
+						</div>
+						<div class="form-group">
+							<mat-form-field class="example-full-width" appearance="fill">
+								<mat-label>Fecha de reserva </mat-label>
+								<input formControlName="fechaReserva"  matInput [matDatepicker]="picker" [min]="minDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker touchUi #picker></mat-datepicker>
+							</mat-form-field>
+						</div>
+					</div>
+					<!-- /.card-body -->
+
+					<div class="card-footer">
+						<button type="submit" class="btn btn-success" [ngStyle]="{'background-color': '#08C330'}">Crear Reserva</button>
+					</div>
+				</form>
+			</div>	
+		</div>
+	</div>
+</div>
+

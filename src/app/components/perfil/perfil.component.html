@@ -1,0 +1,14 @@
+
+
+<div class="card" [ngStyle]="{'width': '25rem', 'margin-left': '30%'}">
+  <div class="card-body">
+    <h3 class="card-title" [ngStyle]="{'color': '#08C330'}">Información del usuario</h3>
+  </div>
+  <ul class="list-group list-group-flush" >
+    <li class="list-group-item">Nombre del usuario: {{userName}}</li>
+    <li class="list-group-item">Role: {{userRole}} </li> 
+  </ul>
+  <div class="card-body">
+    <button type="submit" class="btn btn-success" (click)="cCambiarPasword()" [ngStyle]="{'background-color':'#08C330'}">Cambiar contraseña</button>  
+  </div>
+</div>

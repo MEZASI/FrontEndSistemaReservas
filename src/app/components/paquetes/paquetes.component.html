@@ -1,0 +1,86 @@
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="card">
+				<div class="card-header custom-card">
+					<h3 class="card-title">Gestion de paquetes</h3>
+				</div>
+				<form [formGroup]="crearPaquete" (ngSubmit)="resgistrarPaquete()">
+					<div class="card-body">
+						<div class="form-group">
+							<label for="">Nombre Paquete</label>
+							<input type="text" class="form-control" placeholder="Nombre de paquete" formControlName="nombrePaquete">
+							<span class="text-danger ml-2" *ngIf="crearPaquete.get('nombrePaquete')!.hasError('required') && crearPaquete.get('nombrePaquete')!.touched">
+								El correo <strong>es requerido</strong>
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="">Descripcion del paquete</label>
+							<input type="text" class="form-control"  placeholder="Descripcion del pauqte" formControlName="descripcionPaquete">
+							<span class="text-danger ml-2" *ngIf="crearPaquete.get('descripcionPaquete')!.hasError('required') && crearPaquete.get('descripcionPaquete')!.touched">
+								El correo <strong>es requerido</strong>
+							</span>
+						</div>
+					</div>
+					<div class="card-footer">
+						<button type="submit" class="btn btn-success"[disabled]="crearPaquete.invalid" [ngStyle]="{'background-color': '#08C330'}">Crear Paquete</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header custom-card">
+						<h3 class="card-title">Reservas</h3>
+
+						<div class="card-tools">
+							<div class="input-group input-group-sm" style="width: 150px;">
+								<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+								<div class="input-group-append">
+									<button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body table-responsive p-0" style="width: 35rem;">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th style="display: none;">ID</th>
+									<th>Nombre paquete</th>
+									<th>Descripción</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="odd" *ngFor="let paquete of listaPaquetes">
+									<td style="display:none;">{{paquete.paqueteId}}</td>
+									<td>{{paquete.nombrePaquete}}</td>
+									<td>{{paquete.descripcionPaquete}}</td>
+									<td ><span class="material-icons edit"(click)="editarPaqueteModal(paquete)"  data-toggle="modal" data-target="#modalPaquete">edit</span></td>	
+									<td><span class="material-icons delete" (click)="eliminarPaquete(paquete.paqueteId)">delete</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+			</div>
+			
+		</div>
+		<div class="col">
+			
+		</div>
+	</div>
+</div>
+
+
+<app-modal></app-modal>
